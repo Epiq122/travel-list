@@ -1,7 +1,15 @@
+import Form from './components/Form';
+import Logo from './components/Logo';
+import PackingList from './components/PacklingList';
+import Stats from './components/Stats';
+
 function App() {
   return (
     <div>
-      <h1>Hey</h1>
+      <Logo />
+      <Form />
+      <PackingList />
+      <Stats />
     </div>
   );
 }
