@@ -1,8 +1,8 @@
-import Logo from './components/Logo';
-import Form from './components/Form';
-import PackingList from './components/PacklingList';
-import Stats from './components/Stats';
-import { useState } from 'react';
+import Logo from "./components/Logo";
+import Form from "./components/Form";
+import PackingList from "./components/PacklingList";
+import Stats from "./components/Stats";
+import { useState } from "react";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -18,9 +18,16 @@ function App() {
   function handleToggleItem(id) {
     setItems((items) =>
       items.map((item) =>
-        item.id === id ? { ...item, packed: !item.packed } : item,
-      ),
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
     );
+  }
+
+  function handleClearList() {
+    // create a if statement to confirm if the user wants to clear the list
+    if (window.confirm("Are you sure you want to clear the list?")) {
+      setItems([]);
+    }
   }
 
   return (
@@ -31,6 +38,7 @@ function App() {
         items={items}
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
+        onClearList={handleClearList}
       />
       <Stats items={items} />
     </div>
